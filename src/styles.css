@@ -1,1 +1,20 @@
 /* You can add global styles to this file, and also import other style files */
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.mat-step-label {
+    color: black !important;
+}
+
+.mat-stepper-horizontal-line {
+    border-top: 1px solid #2dce5d !important;
+}
+
+.mat-step-icon-state-number {
+    background: rgb(104, 103, 103) !important;
+}
+
+.mat-step-icon-selected {
+    background: #2dce5d !important;
+}
+

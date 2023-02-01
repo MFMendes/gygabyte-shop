@@ -1,0 +1,18 @@
+.mat-stepper-horizontal {
+    margin-top: 8px;
+    background: #FFF;
+}
+
+.mat-mdc-form-field {
+    margin-top: 16px;
+}
+
+#carrinho {
+    justify-content: space-between;
+
+    .produto-info {
+        height: 100px;
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+        border-radius: 5px;
+    }
+}

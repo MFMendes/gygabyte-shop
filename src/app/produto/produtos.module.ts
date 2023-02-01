@@ -6,17 +6,21 @@ import { ProdutoSelecionadoComponent } from './paginas/produto-selecionado/produ
 
 import { ProdutosRouteModule } from './produtos-route.module';
 import { SwiperModule } from 'swiper/angular';
+import { StepperCompraComponent } from './paginas/stepper-compra/stepper-compra.component';
+import { MatStepperModule } from '@angular/material/stepper';
 
 @NgModule({
   declarations: [
-    ProdutoSelecionadoComponent
+    ProdutoSelecionadoComponent,
+    StepperCompraComponent
   ],
   imports: [
     CommonModule,
     BrowserModule,
     FormsModule,
     ProdutosRouteModule,
-    SwiperModule
+    SwiperModule,
+    MatStepperModule
   ]
 })
 export class ProdutosModule { }
