@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnChanges, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { CONTROLES_QUANTIDADE_FORM } from '../../formularios/controles-quantidade.form';
 
@@ -22,11 +22,16 @@ export class StepperCompraComponent implements OnInit {
   
   public isLinear: boolean = false;
   public formQuantidade!: FormGroup;
+  public showPrice: boolean = false;
   
   constructor(private formBuilder: FormBuilder) {}
 
   ngOnInit(){
     this.inicializaFormulario();
+  }
+
+  public changeState(state: boolean): void {
+    this.showPrice = state;
   }
 
   public inicializaFormulario(): void {

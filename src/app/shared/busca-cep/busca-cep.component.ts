@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CepResponse } from 'src/app/produto/models/responses/cep.response';
 import { BuscaCepService } from './busca-cep.service';
@@ -9,6 +9,7 @@ import { BuscaCepService } from './busca-cep.service';
   styleUrls: ['./busca-cep.component.scss']
 })
 export class BuscaCepComponent implements OnInit {
+  @Output() eventCep = new EventEmitter<boolean>();
 
   public formCep!: FormGroup;
   public numeroCep: string = "";
@@ -40,9 +41,11 @@ export class BuscaCepComponent implements OnInit {
           if (dados.erro === true) {
             this.message = "CEP não encontrado!";
             this.cepExists = false;
+            this.eventCep.emit(this.cepExists);
           } else {
             this.cepResponse = dados;
             this.cepExists = true;
+            this.eventCep.emit(this.cepExists);
           }
         })
     } else {
