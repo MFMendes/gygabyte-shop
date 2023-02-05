@@ -1,3 +1,10 @@
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
 .mat-stepper-horizontal {
     margin-top: 8px;
     background: #FFF;
@@ -9,10 +16,60 @@
 
 #carrinho {
     justify-content: space-between;
+    align-items: flex-start;
 
     .produto-info {
-        height: 100px;
-        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+        box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
         border-radius: 5px;
+
+        span {
+            font-size: 13px;
+        }
+    }
+
+    #quantidade-produto {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        img {
+            margin: 0px 10px;
+        }
+
+        .btn {
+            background: #2dce5d;
+            color: #FFF;
+            margin: 0px 10px;
+        }
+
+        #controles-quantidade {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            #quantidade {
+                width: 45px;
+            }
+        }
+
+        span {
+            font-size: 13px;
+        }
+    }
+
+    .totalCompra {
+        padding: 20px 4px;
+        background: #9bd4ac3d;
+    }
+
+    .btn-finalizar-pedido {
+        width: 100%;
+        font-size: 14px;
+        background: #2dce5d;
+        color: #FFF;
+
+        i {
+            margin-left: 5px;
+        }
     }
 }

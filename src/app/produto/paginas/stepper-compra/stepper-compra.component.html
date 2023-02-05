@@ -1,21 +1,104 @@
 <div class="container-lg mt-5">
     <mat-horizontal-stepper #stepper>
         <mat-step label="Carrinho">
-          <div class="row mt-2" id="carrinho">
-            <div class="col-8 produto-info">
+            <div class="row mt-2" id="carrinho">
+                <div class="col-8">
+                    <div class="produto-info p-1" id="quantidade-produto">
+                        <div class="d-flex align-items-center">
+                            <img src="assets/img/imagem-1.jpg" width="100px" class="img-fluid" alt="">
+                            <p class="m-0">New Nintendo Switch Azul e Vermelho Neon</p>
+                        </div>
+    
+                        <form [formGroup]="formQuantidade">
+                            <div id="controles-quantidade">
+                                <button 
+                                    type="button" 
+                                    class="btn"
+                                    style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .6rem; --bs-btn-font-size: .75rem;"
+                                    (click)="remove()"
+                                >
+                                    -
+                                </button>
+    
+                                <div class="input-group input-group-sm">
+                                    <input 
+                                        type="number" 
+                                        formControlName="Quantidade" 
+                                        class="form-control text-center" 
+                                        id="quantidade" 
+                                        [value]="quantidade" 
+                                        required
+                                    >
+                                </div>
+    
+                                <button 
+                                    type="button" 
+                                    class="btn"
+                                    style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
+                                    (click)="adiciona()"
+                                >
+                                    +
+                                </button>
+                            </div>
+                        </form>
+                        
+                        <span>{{ precoTotalDaCompra | currency : 'BRL' }}</span>
+                    </div>
+                    
+                    <app-busca-cep></app-busca-cep>
+                </div>
+                
+                <div class="col-3">
+                    <div class="produto-info d-flex flex-column">
+                        <div class="row p-1 m-0">
+                            <div class="col-6 p-0 d-flex justify-content-start">
+                                <span>Subtotal</span>
+                            </div>
+                            <div class="col-6 p-0 d-flex justify-content-end">
+                                <span>{{ precoTotalDaCompra | currency : 'BRL' }}</span>
+                            </div>
+                        </div>
+    
+                        <div class="row p-1 m-0">
+                            <div class="col-6 p-0 d-flex justify-content-start">
+                                <span>Frete</span>
+                            </div>
+                            <div class="col-6 p-0 d-flex justify-content-end">
+                                <span>{{ 0 | currency : 'BRL' }}</span>
+                            </div>
+                        </div>
+    
+                        <div class="row m-0 totalCompra">
+                            <div class="col-6 p-0 d-flex justify-content-start">
+                                <h6 class="m-0">TOTAL</h6>
+                            </div>
+                            <div class="col-6 p-0 d-flex justify-content-end">
+                                <span>{{ precoTotalDaCompra | currency : 'BRL' }}</span>
+                            </div>
+                        </div>
+                    </div>
 
-            </div>
-            <div class="col-3 produto-info">
+                    <button 
+                        type="button" 
+                        class="btn btn-finalizar-pedido mt-5"
+                    >
+                        FINALIZAR PEDIDO
+                        <i class="bi bi-chevron-right"></i>
+                    </button>
+                </div>
 
+                <!-- <app-busca-cep></app-busca-cep> -->
             </div>
-          </div>
         </mat-step>
+        
         <mat-step label="Entrega">
             <p>oi</p>
         </mat-step>
+        
         <mat-step label="Pagamento">
             <p>oi</p>
         </mat-step>
+        
         <mat-step label="Confirmação">
             <p>oi</p>
         </mat-step>

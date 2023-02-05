@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { CONTROLES_QUANTIDADE_FORM } from '../../formularios/controles-quantidade.form';
 
 @Component({
   selector: 'app-stepper-compra',
@@ -8,14 +9,37 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class StepperCompraComponent implements OnInit {
 
-  public isLinear = false;
-  public firstForm!: FormGroup;
+  public isLinear: boolean = false;
+  
+  public quantidade: number = 1;
+  public precoProduto: number = 2100;
+  public precoTotalDaCompra: number = this.precoProduto;
+
+  public formQuantidade!: FormGroup;
   
   constructor(private formBuilder: FormBuilder) {}
-  
-  ngOnInit(){
-    this.firstForm = this.formBuilder.group({
 
-    });
+  ngOnInit(){
+    this.inicializaFormulario();
+  }
+
+  public inicializaFormulario(): void {
+    this.formQuantidade = this.formBuilder.group(CONTROLES_QUANTIDADE_FORM);
+  }
+
+  public adiciona(): void {
+    this.quantidade++;
+    this.calculaPrecoTotalDacompra(this.quantidade)
+  }
+
+  public remove(): void {
+    if (this.quantidade > 1) {
+      this.quantidade--;
+    }
+    this.calculaPrecoTotalDacompra(this.quantidade)
+  }
+
+  public calculaPrecoTotalDacompra(quantidade: number): void {
+    this.precoTotalDaCompra = this.precoProduto * quantidade;
   }
 }

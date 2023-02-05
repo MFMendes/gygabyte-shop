@@ -1,0 +1,31 @@
+<div class="row d-flex justify-content-between mt-3">
+    <div class="col-7 d-flex align-items-center">
+        <span *ngIf="cepExists" class="address">
+            <i class="bi bi-geo-alt-fill"></i>
+            {{ cepResponse.logradouro }}, {{ cepResponse.bairro }} - {{ cepResponse.localidade }} / {{ cepResponse.uf }}
+        </span>
+
+        <span class="text-danger" *ngIf="!cepExists;">
+            {{ message }}
+        </span>
+    </div>
+    
+    <form [formGroup]="formCep" class="col-5 d-flex">
+        <input 
+            type="text" 
+            formControlName="Cep" 
+            class="form-control" 
+            placeholder="Digite seu CEP" 
+            [mask]="'00000-000'"
+            required
+        >
+
+        <button 
+            type="submit" 
+            class="btn"
+            (click)="recuperaCep()"
+        >
+            CALCULAR
+        </button>
+    </form>
+</div>
