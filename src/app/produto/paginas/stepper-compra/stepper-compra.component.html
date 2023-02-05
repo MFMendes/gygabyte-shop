@@ -42,10 +42,36 @@
                             </div>
                         </form>
                         
-                        <span>{{ precoTotalDaCompra | currency : 'BRL' }}</span>
+                        <span>{{ totalPrice | currency : 'BRL' }}</span>
                     </div>
                     
                     <app-busca-cep></app-busca-cep>
+
+                    <br />
+
+                    <div 
+                        class="lista-transportadoras mt-1" 
+                        *ngFor="let transportadora of listaTransportadoras; let i=index"
+                    >
+                        <div class="transportadora p-2 d-flex justify-content-between align-items-center">
+                            <div class="form-check">
+                                <input 
+                                    class="form-check-input" 
+                                    type="radio" 
+                                    name="transportadora" 
+                                    id="flexRadio-{{i}}" 
+                                    value="{{transportadora.Price}}"
+                                    [(ngModel)]="deliveryPrice"
+                                >
+                                <label class="form-check-label" for="flexRadio1">
+                                  {{ transportadora.Description }}
+                                  <p class="m-0">Prazo de entrega: até {{ transportadora.DeliveryTime }} dias úteis</p>
+                                </label>
+                            </div>
+
+                            <span>{{ transportadora.Price | currency : 'BRL' }}</span>
+                        </div>
+                    </div>
                 </div>
                 
                 <div class="col-3">
@@ -55,7 +81,7 @@
                                 <span>Subtotal</span>
                             </div>
                             <div class="col-6 p-0 d-flex justify-content-end">
-                                <span>{{ precoTotalDaCompra | currency : 'BRL' }}</span>
+                                <span>{{ totalPrice | currency : 'BRL' }}</span>
                             </div>
                         </div>
     
@@ -64,7 +90,7 @@
                                 <span>Frete</span>
                             </div>
                             <div class="col-6 p-0 d-flex justify-content-end">
-                                <span>{{ 0 | currency : 'BRL' }}</span>
+                                <span>{{ deliveryPrice | currency : 'BRL' }}</span>
                             </div>
                         </div>
     
@@ -73,7 +99,7 @@
                                 <h6 class="m-0">TOTAL</h6>
                             </div>
                             <div class="col-6 p-0 d-flex justify-content-end">
-                                <span>{{ precoTotalDaCompra | currency : 'BRL' }}</span>
+                                <span>{{ totalPrice + (+deliveryPrice) | currency : 'BRL' }}</span>
                             </div>
                         </div>
                     </div>
@@ -85,9 +111,7 @@
                         FINALIZAR PEDIDO
                         <i class="bi bi-chevron-right"></i>
                     </button>
-                </div>
-
-                <!-- <app-busca-cep></app-busca-cep> -->
+                </div> 
             </div>
         </mat-step>
         

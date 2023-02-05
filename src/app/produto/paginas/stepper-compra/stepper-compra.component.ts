@@ -9,12 +9,18 @@ import { CONTROLES_QUANTIDADE_FORM } from '../../formularios/controles-quantidad
 })
 export class StepperCompraComponent implements OnInit {
 
-  public isLinear: boolean = false;
-  
+  public listaTransportadoras = [
+    { Description: 'Transportadora Express', Price: 18, DeliveryTime: 10 },
+    { Description: 'Transportadora Fast', Price: 25, DeliveryTime: 6 },
+    { Description: 'Transportadora Turbo', Price: 35, DeliveryTime: 2 }
+  ];
   public quantidade: number = 1;
-  public precoProduto: number = 2100;
-  public precoTotalDaCompra: number = this.precoProduto;
-
+  public productPrice: number = 2100;
+  public totalPrice: number = this.productPrice;
+  public deliveryPrice: number = 0;
+  public transport: boolean = false;
+  
+  public isLinear: boolean = false;
   public formQuantidade!: FormGroup;
   
   constructor(private formBuilder: FormBuilder) {}
@@ -40,6 +46,6 @@ export class StepperCompraComponent implements OnInit {
   }
 
   public calculaPrecoTotalDacompra(quantidade: number): void {
-    this.precoTotalDaCompra = this.precoProduto * quantidade;
+    this.totalPrice = (this.productPrice * quantidade);
   }
 }

@@ -72,4 +72,19 @@ input::-webkit-inner-spin-button {
             margin-left: 5px;
         }
     }
+
+    .lista-transportadoras {
+        .transportadora {
+            border-radius: 5px;
+            box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+
+            p {
+                font-size: 12px;
+            }
+
+            span {
+                font-size: 13px;
+            }
+        }
+    }
 }

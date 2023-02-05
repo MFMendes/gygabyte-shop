@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CepResponse } from 'src/app/produto/models/responses/cep.response';
 import { BuscaCepService } from './busca-cep.service';
@@ -11,7 +11,6 @@ import { BuscaCepService } from './busca-cep.service';
 export class BuscaCepComponent implements OnInit {
 
   public formCep!: FormGroup;
-
   public numeroCep: string = "";
   public cepResponse: CepResponse = new CepResponse({});
   public cepExists: boolean = false;
@@ -43,7 +42,6 @@ export class BuscaCepComponent implements OnInit {
             this.cepExists = false;
           } else {
             this.cepResponse = dados;
-            console.log(this.cepResponse);
             this.cepExists = true;
           }
         })
