@@ -26,5 +26,4 @@ export class ProdutoSelecionadoComponent implements OnInit {
   public confirmarCompra(): void {
     this.router.navigate(['/carrinho'])
   }
-
 }

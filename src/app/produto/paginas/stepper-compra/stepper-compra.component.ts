@@ -32,6 +32,9 @@ export class StepperCompraComponent implements OnInit {
 
   public changeState(state: boolean): void {
     this.showPrice = state;
+
+    if (!this.showPrice) 
+      this.deliveryPrice = 0;
   }
 
   public inicializaFormulario(): void {

@@ -35,7 +35,7 @@ export class BuscaCepComponent implements OnInit {
   public recuperaCep(): void {
     this.numeroCep = this.formCep.get("Cep")?.value;
 
-    if (this.numeroCep != "") {
+    if (this.numeroCep != "" && this.numeroCep.length >= 8) {
       this.buscaCepService.recuperar(this.numeroCep)
         .subscribe((dados: CepResponse)  => {
           if (dados.erro === true) {

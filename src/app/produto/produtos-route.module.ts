@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ProdutoSelecionadoComponent } from 'src/app/produto/paginas/produto-selecionado/produto-selecionado.component';
+import { CadastroProdutosComponent } from './paginas/cadastro-produtos/cadastro-produtos.component';
 import { StepperCompraComponent } from './paginas/stepper-compra/stepper-compra.component';
 
 const routes: Routes = [
@@ -11,6 +12,10 @@ const routes: Routes = [
   {
     path: "carrinho",
     component: StepperCompraComponent
+  },
+  {
+    path: "cadastro-produtos",
+    component: CadastroProdutosComponent
   }
 ];
 

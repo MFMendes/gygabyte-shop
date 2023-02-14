@@ -9,11 +9,14 @@ import { SwiperModule } from 'swiper/angular';
 import { StepperCompraComponent } from './paginas/stepper-compra/stepper-compra.component';
 import { MatStepperModule } from '@angular/material/stepper';
 import { BuscaCepComponent } from '../shared/busca-cep/busca-cep.component';
-import { IConfig, NgxMaskModule } from 'ngx-mask';
+import { NgxMaskModule } from 'ngx-mask';
+import { CadastroProdutosComponent } from './paginas/cadastro-produtos/cadastro-produtos.component';
+import { NgSelectModule } from '@ng-select/ng-select';
 
 @NgModule({
   declarations: [
     ProdutoSelecionadoComponent,
+    CadastroProdutosComponent,
     StepperCompraComponent,
     BuscaCepComponent,
   ],
@@ -26,7 +29,8 @@ import { IConfig, NgxMaskModule } from 'ngx-mask';
     MatStepperModule,
     FormsModule,
     ReactiveFormsModule,
-    NgxMaskModule.forRoot()
+    NgxMaskModule.forRoot(),
+    NgSelectModule
   ]
 })
 export class ProdutosModule { }
