@@ -12,7 +12,7 @@
         <div class="row mt-3">
             <div class="col-md-4">
                 <label class="form-label">Descrição</label>
-                <input type="text" class="form-control" id="descricao" placeholder="Digite a descrição" required>
+                <input type="text" class="form-control" formControlName="Descricao"  id="descricao" placeholder="Digite a descrição" required>
             </div>
             <div class="col-md-4">
                 <label class="form-label">Categoria</label>
@@ -21,13 +21,14 @@
                     bindLabel="Description" 
                     bindValue="Value" 
                     placeholder="Selecione a categoria"
+                    formControlName="Categoria"
                     [(ngModel)]="categoriaSelecionada"
                 >
                 </ng-select>
             </div>
             <div class="col-md-4">
                 <label class="form-label">Quantidade</label>
-                <input type="number" class="form-control" id="quantidade" placeholder="Digite a quantidade" required>
+                <input type="number" class="form-control" formControlName="Quantidade" id="quantidade" placeholder="Digite a quantidade" required>
             </div>
         </div>
         <div class="row mt-3">
@@ -35,14 +36,14 @@
                 <label class="form-label">Preço</label>
                 <div class="input-group mb-3">
                     <span class="input-group-text">$</span>
-                    <input type="text" class="form-control" placeholder="0,00">
+                    <input type="text" class="form-control" formControlName="Preco"  placeholder="0,00">
                 </div>
             </div>
 
             <div class="col-md-8">
                 <div class="mb-3">
                     <label class="form-label">Selecione as fotos do produto</label>
-                    <input class="form-control" type="file" multiple>
+                    <input class="form-control" formControlName="Files" type="file" multiple>
                 </div>
             </div>
         </div>
@@ -51,6 +52,7 @@
                 <button 
                     type="button" 
                     class="btn btn-cadastro mt-5"
+                    (click)="inserir()"
                 >
                     CADASTRAR
                     <i class="bi bi-plus-circle"></i>

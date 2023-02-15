@@ -12,6 +12,7 @@ import { BuscaCepComponent } from '../shared/busca-cep/busca-cep.component';
 import { NgxMaskModule } from 'ngx-mask';
 import { CadastroProdutosComponent } from './paginas/cadastro-produtos/cadastro-produtos.component';
 import { NgSelectModule } from '@ng-select/ng-select';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { NgSelectModule } from '@ng-select/ng-select';
     FormsModule,
     ReactiveFormsModule,
     NgxMaskModule.forRoot(),
-    NgSelectModule
+    NgSelectModule,
+    ToastrModule.forRoot()
   ]
 })
 export class ProdutosModule { }
