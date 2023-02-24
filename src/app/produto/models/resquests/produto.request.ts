@@ -10,6 +10,6 @@ export class ProdutoRequest {
         this.Categoria != params.Categoria || null;
         this.Quantidade != params.Quantidade || null;
         this.Preco != params.Preco || null;
-        this.Files != params.Files || null;
+        this.Files != params.Files || [];
     }
 }

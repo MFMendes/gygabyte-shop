@@ -3,7 +3,9 @@ import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
 import { environment } from "src/environments/environment";
 import { ProdutoReponse } from "src/app/produto/models/responses/produto.response";
-import { ProdutoRequest } from "src/app/produto/models/resquests/produto.request";
+
+var headers = new Headers();
+headers.append('Content-Type', 'multipart/form-data');
 
 @Injectable({
     providedIn: 'root'
@@ -13,7 +15,7 @@ export class ProdutosService {
 
     constructor(private http: HttpClient) { }
 
-    public inserir(request: ProdutoRequest): Observable<ProdutoReponse> {
-        return this.http.post<ProdutoReponse>(`${this.urlBase}/products`, request);
+    public inserir(formData: FormData): Observable<ProdutoReponse> {
+        return this.http.post<ProdutoReponse>(`${this.urlBase}/products`, formData);
     }   
 }
