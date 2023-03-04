@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { ProdutosModule } from './produto/produtos.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
+import { GerenciamentosModule } from './gerenciamento/gerenciamentos.module';
 
 @NgModule({
   declarations: [
@@ -14,6 +15,7 @@ import { HttpClientModule } from '@angular/common/http';
   imports: [
     BrowserModule,
     ProdutosModule,
+    GerenciamentosModule,
     RouterModule,
     HttpClientModule,
     BrowserAnimationsModule

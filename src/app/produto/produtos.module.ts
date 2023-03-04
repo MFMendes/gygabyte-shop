@@ -10,28 +10,25 @@ import { StepperCompraComponent } from './paginas/stepper-compra/stepper-compra.
 import { MatStepperModule } from '@angular/material/stepper';
 import { BuscaCepComponent } from '../shared/busca-cep/busca-cep.component';
 import { NgxMaskModule } from 'ngx-mask';
-import { CadastroProdutosComponent } from './paginas/cadastro-produtos/cadastro-produtos.component';
+import { CadastroProdutosComponent } from '../gerenciamento/paginas/cadastro-produtos/cadastro-produtos.component';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
     ProdutoSelecionadoComponent,
-    CadastroProdutosComponent,
     StepperCompraComponent,
-    BuscaCepComponent,
+    BuscaCepComponent
   ],
   imports: [
     CommonModule,
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     ProdutosRouteModule,
     SwiperModule,
     MatStepperModule,
-    FormsModule,
-    ReactiveFormsModule,
     NgxMaskModule.forRoot(),
-    NgSelectModule,
     ToastrModule.forRoot()
   ]
 })

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
-import { PRODUTOS_FORM } from 'src/app/produto/formularios/produtos.form';
+import { PRODUTOS_FORM } from 'src/app/gerenciamento/formularios/produtos.form';
 import { ProdutoRequest } from 'src/app/produto/models/resquests/produto.request';
 import { ProdutosService } from 'src/app/produto/services/produtos.service';
 
@@ -52,6 +52,7 @@ export class CadastroProdutosComponent implements OnInit {
   public submitForm(): void {
     var formData = new FormData();
 
+    formData.append('Nome', this.formProdutos.get('Nome')!.value)
     formData.append('Descricao', this.formProdutos.get('Descricao')!.value)
     formData.append('Categoria', this.formProdutos.get('Categoria')!.value)
     formData.append('Quantidade', this.formProdutos.get('Quantidade')!.value)

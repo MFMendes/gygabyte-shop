@@ -1,37 +1,27 @@
 <div class="container-lg mt-5">
-  <nav 
-      style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='%236c757d'/%3E%3C/svg%3E&#34;);" 
-      aria-label="breadcrumb"
-  >
-      <ol class="breadcrumb mb-2">
-          <li class="breadcrumb-item">INÍCIO</li>
-          <li class="breadcrumb-item">GAMES</li>
-          <li class="breadcrumb-item active" aria-current="page">NINTENDO SWITCH</li>
-      </ol>
+  <nav
+    style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='%236c757d'/%3E%3C/svg%3E&#34;);"
+    aria-label="breadcrumb">
+    <ol class="breadcrumb mb-2">
+      <li class="breadcrumb-item">INÍCIO</li>
+      <li class="breadcrumb-item">GAMES</li>
+      <li class="breadcrumb-item active" aria-current="page">{{ responseProduto.nome | uppercase }}</li>
+    </ol>
   </nav>
 
-  <div class="row d-flex">
+  <div class="row" id="main">
     <div class="col-7">
-      <swiper
-        [slidesPerView]="1"
-        [spaceBetween]="10"
-        [navigation]="true"
-        [pagination]="{ clickable: true }"
-      >
-        <ng-template swiperSlide class="swiperSlide">
-          <img src="assets/img/imagem-1.jpg" width="500px" class="img-fluid" alt="">
-        </ng-template>
-        
-        <ng-template swiperSlide class="swiperSlide">
-          <img src="assets/img/imagem-2.jpg" class="img-fluid" width="500px" alt="">
+      <swiper class="swiper" [slidesPerView]="1" [spaceBetween]="10" [navigation]="true" [pagination]="{ clickable: true }">
+        <ng-template swiperSlide class="swiperSlide" *ngFor="let image of responseImagem">
+          <img [src]="'data:image/png;base64,' + image.content" width="500px" class="img-fluid" alt="">
         </ng-template>
       </swiper>
     </div>
     <div class="col-5 product-description">
       <div>
-        <h5 class="title">New Nintendo Switch Azul e Vermelho Neon</h5>
+        <h5 class="title">{{ responseProduto.nome }}</h5>
         <p class="paragraph">Vendido por: <span>GygabyteShop</span></p>
-        
+
         <hr>
 
         <div>
@@ -39,25 +29,20 @@
 
           <ul class="list-group">
             <li class="list-group-item">
-              Modelo com bateria estendida. Duração varia de acordo com os jogos ou aplicações utilizados.
-            </li>
-            <li class="list-group-item">
-              Suporta 3 tipos diferentes de jogabilidade: Modo TV, Modo suporte de mesa e Modo portátil.
-            </li>
-            <li class="list-group-item">
-              Conecta-se via Wi-Fi para jogos com vários jogadores
+              {{ responseProduto.descricao }}
             </li>
           </ul>
         </div>
-        
+
         <hr>
+
+        <p class="text-white" style="font-size: 13px">Quantidade em estoque: {{ responseProduto.quantidade }}</p>
 
         <div class="d-flex align-items-center mb-2">
           <i class="bi bi-credit-card-fill" style="font-size: 2rem; color: #888;"></i>
-          
           <div class="d-flex flex-column" class="product-price">
-            <h5 class="m-0">R$ 2.300,00</h5>
-            <p class="m-0">10x de R$ 230,00 sem juros no cartão</p>
+            <h5>{{ responseProduto.preco | currency:'BRL' }} </h5>
+            <p class="m-0">10x de {{ responseProduto.preco / 10 | currency:'BRL' }} no cartão</p>
           </div>
         </div>
       </div>
@@ -65,5 +50,7 @@
       <button type="button" class="btn-comprar" (click)="confirmarCompra()">COMPRAR AGORA</button>
     </div>
   </div>
+
+  <button type="button" class="btn btn-primary" (click)="cadastrar()">CADASTRAR</button>
 
 </div>

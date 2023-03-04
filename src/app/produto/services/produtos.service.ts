@@ -17,5 +17,9 @@ export class ProdutosService {
 
     public inserir(formData: FormData): Observable<ProdutoReponse> {
         return this.http.post<ProdutoReponse>(`${this.urlBase}/products`, formData);
-    }   
+    }
+    
+    public recuperar(id: number): Observable<ProdutoReponse> {
+        return this.http.get<ProdutoReponse>(`${this.urlBase}/products/${id}`);
+    } 
 }
